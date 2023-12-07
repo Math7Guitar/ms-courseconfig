@@ -1,0 +1,25 @@
+# Server Config
+server:
+  port: ${PORT:0}
+
+# Application Config
+spring:
+  application:
+    name: hr-worker
+  config:
+    import: optional:configserver:http://localhost:8889/
+  cloud:
+    config:
+      profile: dev
+
+# HR-WORKER
+hr-worker:
+  greeting: "Ciao"
+  default-value: "Mondo"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
